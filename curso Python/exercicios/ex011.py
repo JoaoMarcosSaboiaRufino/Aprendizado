@@ -5,5 +5,5 @@ altura = int(input('Qual a altura da parede? '))
 area = largura * altura
 litros_de_tinta = area / 2
 
-print('Com a largura da perede sendo {}m e sua altura sendo {}m, então sua área será de {}m quadrados. '
+print('Com a largura da perede sendo {}m e sua altura sendo {}m, então sua área será de {}m². '
       'Nesse caso serão necessários {} litros de tinta para pintá-la'.format(largura, altura, area, litros_de_tinta))
