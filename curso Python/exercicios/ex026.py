@@ -4,4 +4,9 @@
 *identifique a posição do ultimo 'R'
 '''
 
-#pendente
+frase = str(input('Digite uma frase: '))
+print('A frase tem {} R'.format((frase.upper()).count('R')))
+print('A frase tem o primeiro R na posição {}'.format(frase.upper().find('R') + 1))
+print('A frase tem seu ultimo R na posiçao {}'.format(frase.upper().rfind('R') + 1))
+
+
