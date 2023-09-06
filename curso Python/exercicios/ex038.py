@@ -3,25 +3,29 @@
 *O segundo valor é maior
 *Não existe valor maior, os dois são iguais.'''
 
-n1 = (input('\033[1;32;40m Digite um valor: '))
-n2 = (input('Digite outro valor: \033[m'))
+n1 = input('\033[1;32;40m Digite um valor: ')
+n2 = input('Digite outro valor: \033[m')
 
+conjunto = n1.isnumeric() & n2.isnumeric()
 
-
-
-
-
-cond1 = float(n1) > float(n2)
-cond2 = float(n2) > float(n1)
-cond3 = float(n1) == float(n2)
-
-
-if cond1 == True:
-    print('O primeiro valor é maior.')
-elif cond2 == True:
-    print('O segundo valor é maior.')
+if conjunto == False:
+    print('invalido!')
 else:
-    print('Os valores são iguais!')
+    num1 = int(n1)
+    num2 = int(n2)
+    print(f'{num1} e {num2}')
+
+    if num1 > num2:
+        print('O primeiro número é maior,')
+    elif num2 > num1:
+        print('O segundo número é maior.')
+    else:
+        print('Os dois números são iguais.')
+
+
+
+
+
 
 
 
