@@ -6,7 +6,7 @@ o seu preço normal e condição de pagamento:
 *3x ou mais no cartão: 20% DE JUROS
 '''
 #-----------------------------------------------------------------------------------
-import time
+from time import sleep
 
 preco = input('Qual o preço do produto? ')
 print('E qual forma de pagamento você deseja? '
@@ -19,11 +19,15 @@ print('E qual forma de pagamento você deseja? '
 
 met = (input('Qual método de pagamento você quer?(seleciona pela numeração do método) '))
 
-verif = preco.isnumeric() or preco.isalnum()
+#verificações
+verif = preco.isnumeric()
+verif2 = '.' in preco
+other_verif = met.isnumeric() and int(met) < 5
 
-if verif == True:
 
-    if met.isnumeric():
+if verif == True or verif2 == True:
+
+    if other_verif == True:
         metint = int(met)
         preconew = float(preco)
         print(metint)
@@ -32,28 +36,31 @@ if verif == True:
 
         if metint == 1:
             novo_preco = preconew - (preconew * 0.1)
-            escolha = str(input(f'Será cobrado R${novo_preco} reais. Deseja confirmar a compra?'
+            escolha = str(input(f'Será cobrado R${novo_preco:.2f} reais. Deseja confirmar a compra?'
                                 f'\n Sim ou Não? '))
             escolhamod = escolha.upper()
+
             if escolhamod == 'SIM': #ESCOLHA SIM
-                tempo = '\033[4;31mAGUARDE.'
+                tempo = '\033[1;31mAGUARDE.'
                 print(tempo)
-                time.sleep(0.5)
+                sleep(0.5)
                 tempo = 'AGUARDE..'
                 print(tempo)
-                time.sleep(0.5)
+                sleep(0.5)
                 tempo = 'AGUARDE... \033[m'
                 print(tempo)
-                time.sleep(2)
+                sleep(2)
                 print('\033[1;32m Compra finalizada! \033[m')
+
             elif escolhamod == 'NÃO' or escolhamod == 'NAO': #ESCOLHA NÃO
-                print('\033[4;31mAGUARDE.')
-                time.sleep(0.5)
+                print('\033[1;31mAGUARDE.')
+                sleep(0.5)
                 print('AGUARDE..')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE... \033[m')
-                time.sleep(2)
+                sleep(2)
                 print('\033[1;33m Compra cancelada pelo usuário! \033[m')
+
             else:
                 print('\033[1;41;30m Resposta inválida! \033[m') #RESPOSTA QUE NÃO SEJA 'NÃO' OU 'SIM'
 
@@ -62,25 +69,28 @@ if verif == True:
 
         elif metint == 2:
             novo_preco = preconew - (preconew * 0.05)
-            escolha = str(input(f'Será cobrado R${novo_preco} reais. Deseja confirmar a compra? '
-                                '\n Sim ou Não?'))
+            escolha = str(input(f'Será cobrado R${novo_preco:.2f} reais. Deseja confirmar a compra? '
+                                '\n Sim ou Não? '))
             escolhamod = escolha.upper()
+
             if escolhamod == 'SIM': #ESCOLHA SIM
-                print('\033[4;31mAGUARDE.')
-                time.sleep(0.5)
+                print('\033[1;31mAGUARDE.')
+                sleep(0.5)
                 print('AGUARDE..')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE... \033[m')
-                time.sleep(2)
+                sleep(2)
                 print('\033[1;32m Compra finalizada! \033[m')
+
             elif escolhamod == 'NAO' or escolhamod == 'NÂO': #ESCOLHA NÃO
-                print('\033[4;31mAGUARDE.')
-                time.sleep(0.5)
+                print('\033[1;31mAGUARDE.')
+                sleep(0.5)
                 print('AGUARDE..')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE... \033[m')
-                time.sleep(2)
+                sleep(2)
                 print('\033[1;33m Compra cancelada pelo usuário! \033[m')
+
             else:
                 print('\033[1;30;41m Resposta inválida! \033[m') #RESPOSTA QUE NÃO SEJA 'NÃO' OU 'SIM'
 
@@ -89,25 +99,28 @@ if verif == True:
 
         elif metint == 3:
             preco_parcelado2x = preconew / 2
-            escolha = str(input(f'Será cobrado duas parcelas de R${preco_parcelado2x} reais. Deseja confirmar a compra?'
+            escolha = str(input(f'Será cobrado duas parcelas de R${preco_parcelado2x:.2f} reais. Deseja confirmar a compra?'
                                 f'\n Sim ou Não? '))
             escolhamod = escolha.upper()
+
             if escolhamod == 'SIM': #ESCOLHA SIM
                 print('\033[1;31mAGUARDE.')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE..')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE... \033[m')
-                time.sleep(2)
+                sleep(2)
                 print('\033[1;32m Compra finalizada! \033[m')
+
             elif escolhamod == 'NÃO' or escolhamod == 'NAO': #ESCOLHA NÃO
                 print('\033[1;31mAGUARDE.')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE..')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE... \033[m')
-                time.sleep(2)
+                sleep(2)
                 print('\033[1;33m Compra cancelada pelo usuário! \033[m')
+
             else:
                 print('\033[1;30;41m Resposta inválida! \033[m')#RESPOSTA QUE NÃO SEJA 'NÃO' OU 'SIM'
 
@@ -116,31 +129,33 @@ if verif == True:
 
         elif metint == 4:
             novo_preco = (preconew + (preconew * 0.2)) / 3
-            escolha = str(input(f'Será cobrado R${novo_preco} reais por cada parcela. Deseja confirmar a compra? '
+            escolha = str(input(f'Será cobrado R${novo_preco:.2f} reais por cada parcela. Deseja confirmar a compra? '
                                 '\n Sim ou Não? '))
             escolhamod = escolha.upper()
 
 
             if escolhamod == 'SIM':#ESCOLHA SIM
                 print('\033[1;31mAGUARDE.')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE..')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE... \033[m')
-                time.sleep(2)
+                sleep(2)
                 print('\033[1;32m Compra finalizada! \033[m')
+
             elif escolhamod == 'NÃO' or escolhamod == 'NAO': #ESCOLHA NÃO
                 print('\033[1;31mAGUARDE.')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE..')
-                time.sleep(0.5)
+                sleep(0.5)
                 print('AGUARDE... \033[m')
-                time.sleep(2)
+                sleep(2)
                 print('\033[1;33m Compra cancelada pelo usuário! \033[m')
+            else:
+                print('\033[1;30;41m Resposta inválida! \033[')
 
-
-        else:
-            print('\033[1;30;41m Resposta inválida! \033[m') #RESPOSTA QUE NÃO SEJA 'NÃO' OU 'SIM'
+    else:
+        print('\033[1;31m Esse método não existe. \033[m')
 
 else:
     print('\033[1;31m Erro \033[m')
