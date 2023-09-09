@@ -21,7 +21,7 @@ else:
         print(f'Faltam {18 - (ano_atual - ano_nascimento)} ano(s) para você se alistar!')
     else:
         print('Já passou o tempo de seu alistamento.')
-        print(f'Se passaram {18 - (ano_atual - ano_nascimento)} ano(s)')
+        print(f'Se passaram {(ano_atual - ano_nascimento) - 18} ano(s)')
 
 
 

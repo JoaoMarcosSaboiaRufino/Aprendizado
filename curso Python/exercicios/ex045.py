@@ -78,7 +78,7 @@ else:
 
 
 if usuario == computador:
-    print('EMPATE!')
+    print('\033[1;30;42m EMPATE! \033[m')
 elif usuario == conj_jokepo[0] and computador == conj_jokepo[2]:
     print('\033[1;32;40mO usuário venceu! \033[m')
 elif usuario == conj_jokepo[1] and computador == conj_jokepo[0]:
