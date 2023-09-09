@@ -7,17 +7,24 @@ o seu preço normal e condição de pagamento:
 '''
 #-----------------------------------------------------------------------------------
 from time import sleep
+print('{:=^50}'.format(' CYBERSHOP '))
+print('''            Bem vindo a nossa loja!\n ''')
 
-preco = input('Qual o preço do produto? ')
-print('E qual forma de pagamento você deseja? '
-      '\n \033[1;36;40mDinheiro/Cheque: \033[m'
-      '\n\033[0;30;44m  *À vista com 10% de desconto. MÉTODO 1\033[m' 
-      '\n \033[1;36;40mCartão: \033[m'
-      '\n\033[0;30;44m  *À vista no cartão com 5% de desconto. MÉTODO 2'
-      '\n  *Em até 2x no cartão pelo preço normal. MÉTODO 3'
-      '\n  *3x ou mais no cartão com 20% de juros. MÉTODO 4\033[m')
 
-met = (input('Qual método de pagamento você quer?(seleciona pela numeração do método) '))
+
+preco = input('''Qual o preço do produto? R$''')
+
+print('''
+\033[1;35m==-----------------------------------------------------------------==\033[m
+  \033[1mQual dos métodos abaixo você acha melhor para pagar?\033[m  
+[ 1 ] À vista no dinheiro ou cheque com 10% de desconto.            
+[ 2 ] À vista no cartão com 5% de desconto.                         
+[ 3 ] Em até 2x no cartão.                                          
+[ 4 ] 3x ou mais no cartão com 20% de juros.                        
+\033[1;35m==-----------------------------------------------------------------==\033[m
+''')
+
+met = (input('Qual método de pagamento você quer? '))
 
 #verificações
 verif = preco.isnumeric()
@@ -30,7 +37,6 @@ if verif == True or verif2 == True:
     if other_verif == True:
         metint = int(met)
         preconew = float(preco)
-        print(metint)
 #------------------------------------------------------------------------------------------------------------|
 #METODO 1
 
@@ -128,7 +134,7 @@ if verif == True or verif2 == True:
 #MÉTODO 4
 
         elif metint == 4:
-            novo_preco = (preconew + (preconew * 0.2)) / 3
+            novo_preco = (preconew + (preconew * 0.2)) / int(input('Em quantas parcelas? '))
             escolha = str(input(f'Será cobrado R${novo_preco:.2f} reais por cada parcela. Deseja confirmar a compra? '
                                 '\n Sim ou Não? '))
             escolhamod = escolha.upper()
@@ -152,7 +158,7 @@ if verif == True or verif2 == True:
                 sleep(2)
                 print('\033[1;33m Compra cancelada pelo usuário! \033[m')
             else:
-                print('\033[1;30;41m Resposta inválida! \033[')
+                print('\033[1;30;41m Resposta inválida! \033[m')
 
     else:
         print('\033[1;31m Esse método não existe. \033[m')
