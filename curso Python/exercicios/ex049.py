@@ -1,12 +1,8 @@
-'''Desenvolva um programa que leia seis número inteiros e mostre a soma apenas
-daqueles que forem pares. Se o valor digitado for impar, desconsidere-o.'''
-#----------------------------------------------------------------------------------------
+'''Refaça o desafio 009, mostrando a tabuada de um número que o usuário escolher, só
+que agora utilizando um laço for.'''
+#------------------------------------------------------------------------------------------
 
-valor = 0
+tabuada = int(input('Qual número você deseja obter a tabuada? '))
 
-for n in range(0, 6):
-    va = int(input('Digite um valor inteiro: '))
-    if va % 2 == 0:
-        valor += va
-
-print(f'A soma de todos os números pares que você digitou é {valor}')
+for n in range(0, 11):
+    print(f'{tabuada} x {n:2} = {tabuada*n:2}')
