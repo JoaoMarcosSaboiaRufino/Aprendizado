@@ -17,8 +17,8 @@ for cada_letra in frasealt:
     f_invertido = cada_letra + f_invertido
 
 if frasealt == f_invertido:
-    print('A frase "{}" é uma FRASE POLIDROMO!'.format(frase))
+    print('\033[32mOque você digitou é uma FRASE ou PALAVRA PALÍNDROMO!')
 else:
-    print('A frase "{}" não é uma FRASE POLIDROMO!'.format(frase))
+    print('\033[31mOque você digitou não é uma FRASE ou PALAVRA PALÍNDROMO!')
 
 
