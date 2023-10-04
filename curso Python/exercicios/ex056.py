@@ -3,3 +3,18 @@
 --- Qual é o nome do homem mais velho.
 --- Quantas mulheres têm menos de 20 anos.'''
 #-----------------------------------------------------------------------------------------------------------------------
+
+#GERAL
+idade = []
+
+#HOMEM/MASCULINO
+
+
+#MULHER/FEMININO
+
+
+
+
+
+
+
